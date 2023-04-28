@@ -5,8 +5,9 @@ import (
 	"board/repository/myDB"
 	conf "board/package/config"
 
-	_ "github.com/go-sql-driver/mysql" // mysql driver
-	"github.com/jinzhu/gorm"
+	"gorm.io/driver/mysql"
+
+	"gorm.io/gorm"
 )
 
 var MyDB *gorm.DB
@@ -29,7 +30,7 @@ func buildDBUrl(account, pwd, host, port, dbName string) string {
 }
 
 func connectDB(connStr string) *gorm.DB {
-	db, err := gorm.Open("mysql", connStr)
+	db, err := gorm.Open(mysql.Open(connStr))
 	if err != nil {
 		panic(
 			fmt.Sprintf("[ connectDB Connect Database Error ] - Err : [ %s ]", err),

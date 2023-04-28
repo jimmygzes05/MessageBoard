@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 type repository struct {
@@ -87,7 +87,7 @@ func GetUserByUserName(userName string) (user model.UserModel, apiErr error) {
 func AddUser(nickName, userName, password string) (apiErr error) {
 
 	// 先確認使用者帳號是否為唯一值
-	var count int
+	var count int64
 	err := db.master.Model(model.UserModel{}).Where("userName = ?", userName).Count(&count).Error
 	if err != nil {
 		apiErr = fmt.Errorf("取使用者資料失敗，原因:%v", err)
