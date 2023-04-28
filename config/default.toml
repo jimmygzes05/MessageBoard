@@ -4,7 +4,7 @@ port = ":8000"
 [db]
 account = "root"
 password = "admin"
-host = "127.0.0.1"
+host = "docker.for.mac.localhost"
 db_name = "myDB"
 port = "3306"
 connMaxLifetime = 120

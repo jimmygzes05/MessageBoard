@@ -6,7 +6,7 @@ services:
       dockerfile: DockerFile
     image: board
     ports:
-      - "1234:8080"
+      - "1234:8000"
     container_name: board
     volumes:
            - ./:/app

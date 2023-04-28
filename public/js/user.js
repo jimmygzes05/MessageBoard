@@ -4,7 +4,7 @@ $("#login").click(function (e) {
     console.log(data)
     $.ajax({
         type: "post",
-        url: "./api/user/login",
+        url: "../api/user/login",
         data: data,
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -36,10 +36,12 @@ $('#sign').click(function (e) {
 });
 
 $('#signUp').click(function (e) {
-    var data = $("#registerForm").serializeArray();
+    var originData = $("#registerForm").serializeArray();
+    data = JSON.stringify(convertJSON(originData))
+    console.log(data)
     $.ajax({
         type: "post",
-        url: "register",
+        url: "../api/user/register",
         data: data,
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -60,7 +62,8 @@ $('#signUp').click(function (e) {
             $(window).attr('location', 'login');
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert("unknown error");
+            console.log(xhr);
+            console.log(thrownError);
         }
     });
     e.preventDefault();

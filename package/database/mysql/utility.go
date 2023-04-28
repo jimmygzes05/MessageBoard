@@ -25,7 +25,7 @@ func buildConnStr() string {
 }
 
 func buildDBUrl(account, pwd, host, port, dbName string) string {
-	return account + ":" + pwd + "@tcp(" + host + ":" + port + ")/" + dbName + "?parseTime=true&loc=Asia%2FTaipei"
+	return account + ":" + pwd + "@tcp(" + host + ":" + port + ")/" + dbName + "?charset=utf8mb4&parseTime=true&loc=Asia%2FTaipei"
 }
 
 func connectDB(connStr string) *gorm.DB {
