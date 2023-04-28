@@ -4,7 +4,17 @@
 
 ### Step.1
 
-git clone下來後，docker使用以下指令(需先安裝docker)
+先clone mysql的那個repository，再clone此repository，並確保兩個repository資料夾在同一層，如下：
+
+```bash
+.
+├── board
+└── mysql
+```
+
+### Step.2
+
+git clone完成後，docker使用以下指令(需先安裝docker)
 
 ```bash
 # 建立mysql container，包含phpmyadmin
@@ -13,7 +23,7 @@ git clone下來後，docker使用以下指令(需先安裝docker)
 docker-compose -f docker/db.yaml up
 ```
 
-### Step.2
+### Step.3
 
 再來建立主要程式的Container，使用以下指令
 
