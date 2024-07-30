@@ -10,7 +10,7 @@ $("#login").click(function (e) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (response) {
-            if (response["error"] == true) {
+            if (response["data"] == "Fail") {
                 $('#errorMsg').remove()
                 $('#loginPassword').after(
                     $('<span/>')

@@ -18,8 +18,8 @@ type LoginRequest struct {
 
 // 登入回應格式
 type LoginResponse struct {
-	Err  error  `json:"err"`
-	Data string `json:"data"`
+	ErrMsg string `json:"errorMsg"`
+	Data   string `json:"data"`
 }
 
 // 登入
@@ -36,8 +36,8 @@ func Login(c *gin.Context) {
 	if err != nil {
 		log.Println(err)
 		c.JSON(http.StatusOK, &LoginResponse{
-			Err:  err,
-			Data: "Fail",
+			ErrMsg: err.Error(),
+			Data:   "Fail",
 		})
 		return
 	}
@@ -51,8 +51,8 @@ func Login(c *gin.Context) {
 	session.Save()
 
 	c.JSON(http.StatusOK, &LoginResponse{
-		Err:  nil,
-		Data: "Success",
+		ErrMsg: "",
+		Data:   "Success",
 	})
 }
 

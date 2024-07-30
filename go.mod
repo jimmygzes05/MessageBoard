@@ -1,6 +1,6 @@
 module board
 
-go 1.19
+go 1.22.5
 
 require (
 	github.com/facebookgo/grace v0.0.0-20180706040059-75cf19382434
