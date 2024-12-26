@@ -6,7 +6,7 @@ $(document).ready(function () {
             sessionStorage.setItem("userName", response.userName)
             sessionStorage.setItem("userID", response.userID)
             sessionStorage.setItem("nickName", response.nickName)
-            $('#hiUser').text(`你好！${sessionStorage.getItem("userName")}`)
+            $('#hiUser').text(`你好！${sessionStorage.getItem("nickName")}`)
         }
     });
 })
